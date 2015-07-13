@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/Elric-pp/initWorkspace#readme",
   "devDependencies": {
+    "ejs": "^2.3.3",
     "express": "^4.13.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",

@@ -65,6 +65,11 @@ gulp.task('image', function() {
 });
 
 gulp.task('html', function() {
+    return gulp.src('public/dist/*.html')
+        .pipe(connect.reload())
+});
+
+gulp.task('view', function() {
     return gulp.src('public/dist/**/*.html')
         .pipe(connect.reload())
 });
