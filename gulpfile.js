@@ -65,12 +65,12 @@ gulp.task('image', function() {
 });
 
 gulp.task('html', function() {
-    return gulp.src('public/dist/*.html')
+    return gulp.src('public/dist/views/*.html')
         .pipe(connect.reload())
 });
 
 gulp.task('view', function() {
-    return gulp.src('public/dist/**/*.html')
+    return gulp.src('public/dist/views/**/*.html')
         .pipe(connect.reload())
 });
 
@@ -90,7 +90,7 @@ gulp.task('watch', function() {
 
     gulp.watch('public/src/images/**/*', ['image']);
 
-    gulp.watch('public/**/*.html', ['html']);
+    gulp.watch('public/dist/views/**/*.html', ['html']);
 });
 
 

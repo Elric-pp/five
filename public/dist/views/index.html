@@ -4,15 +4,57 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoList</title>
-    <link rel="stylesheet" href="/dist/style/main.min.css">
+    <link rel="stylesheet" href="../../dist/style/main.min.css">
 </head>
 
-<body ng-app="app">
-    <ng-include src="'/dist/views/home.html'" ></ng-include>
-    <ng-include src="'/dist/views/user.html'" ></ng-include>
+<body ng-app="app" ng-controller="appCtrl">
+    <header id="header">
+        <nav id="nav">
+            <ul>
+                <li ng-class="{curli : index==1}" ng-click="changeIndex(1)">首页</li>
+                <li ng-class="{curli : index==2}" ng-click="changeIndex(2)">五班</li>
+                <li ng-class="{curli : index==3}" ng-click="changeIndex(3)">我</li>
+                <li ng-class="{curli : index==4}" ng-click="changeIndex(4)">帮助</li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div id="wrap">
+        <div id="content">
+            <ng-include src="'../../dist/views/temp/home.html'" ng-if="index==1"></ng-include>
+            <ng-include src="'../../dist/views/temp/group.html'" ng-if="index==2"></ng-include>
+            <ng-include src="'../../dist/views/temp/user.html'" ng-if="index==3"></ng-include>  
+            <ng-include src="'../../dist/views/temp/help.html'" ng-if="index==4"></ng-include>  
+        </div>
+    
+        <div id="sidebar">
+            <div class="fn">
+                <p>
+                    <span class='button'>创建活动</span>
+                </p>
+                <p>
+                    <span class='button'>添加团购</span>
+                </p>
+            </div>
 
-<script src="/dist/lib/angularjs/angular.min.js"></script>
-<script src="/dist/script/main.min.js"></script>    
+            <div class="info">
+                <p>公告</p>
+            </div>
+
+        </div>
+    </div>
+
+    <ng-include  >popup</ng-include>
+
+
+    <footer id="footer"></footer>
+
+
+
+
+
+    <script src="../../dist/lib/angularjs/angular.min.js"></script>
+    <script src="../../dist/script/main.min.js"></script>
 </body>
 
 </html>
