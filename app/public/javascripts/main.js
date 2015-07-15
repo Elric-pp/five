@@ -15,11 +15,11 @@ app.controller('homeCtrl', ['$scope', 'homeService',function($scope,homeService)
     	$scope.tabIndex = index;
     }
 }]);
-app.controller('loginCtrl', ['$scope','loginService', function($scope, loginService){
+app.controller('loginCtrl', ['$scope', '$http', 'loginService', function($scope, $http, loginService){
     $scope.userName= "";
     $scope.passwd = "";
     $scope.login = function(){
-    
+    	
     }
 }]);
 
@@ -33,7 +33,13 @@ app.service('homeService', ['$http', function($http) {
 	
 }])
 app.service('loginService', ['$http', function($http) {
-	
+	this.login = function(name, pwd){
+		var url = '/login'
+		return $http.post(
+			url,
+			
+		)
+	}
 }])
 app.service('userService', ['$http', function($http) {
 	

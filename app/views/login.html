@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoList</title>
-    <link rel="stylesheet" href="./dist/style/main.min.css">
+    <link rel="stylesheet" href="/public/stylesheets/main.min.css">
 </head>
-<body ng-app="app">
+<body ng-app="app" id="loginPage">
 
-<div ng-controller="loginCtrl" id="loginPage">
+<div ng-controller="loginCtrl" >
     <div class="wrap">
         <input type="text" class="name" ng-model="userName"  required="">
         <input type="password" class="password"  ng-model="passwd" required="">
@@ -19,8 +19,8 @@
     </div>
 </div>
 
-<script src="./dist/lib/angularjs/angular.min.js"></script>
-<script src="./dist/script/main.min.js"></script>    
+<script src="/public/lib/angularjs/angular.min.js"></script>
+<script src="/public/javascripts/main.min.js"></script>    
 </body>
 
 </html>
