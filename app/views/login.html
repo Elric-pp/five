@@ -9,14 +9,26 @@
 <body ng-app="app" id="loginPage">
 
 <div ng-controller="loginCtrl" >
-    <div class="wrap">
+    <div class="wrap" ng-hide="regPage">
         <input type="text" class="name" ng-model="userName"  required="">
         <input type="password" class="password"  ng-model="passwd" required="">
         <div class="btnwrap">
-            <button class="login"  ng-click="login()">login</button>
-            <button class="regis">sign in</button>
+            <button class="login"  ng-click="login()">登录</button>
+            <button class="regis" ng-click="regPage=true">注册</button>
         </div>
     </div>
+    <div class="wrap" ng-show="regPage">
+        <input type="text" class="name" ng-model="reg.username"  required="">
+        <input type="password" class="password"  ng-model="reg.passwd" required="">
+        <input type="password" class="password"  ng-model="reg.repasswd" required="">
+        <div class="btnwrap">
+            <button class="regis"  ng-click="reg.regis()">注册</button>
+            <button class="regis"  ng-click="regPage=false">返回</button>
+        </div>
+    </div>
+    
+
+    <div class="Tip" ng-if="globalTip.on">{{globalTip.tip}}</div>
 </div>
 
 <script src="/public/lib/angularjs/angular.min.js"></script>

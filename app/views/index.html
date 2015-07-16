@@ -18,15 +18,13 @@
             </ul>
         </nav>
     </header>
-    
     <div id="wrap">
         <div id="content">
             <ng-include src="'/public/temp/home.html'" ng-if="index==1"></ng-include>
             <ng-include src="'/public/temp/group.html'" ng-if="index==2"></ng-include>
-            <ng-include src="'/public/temp/user.html'" ng-if="index==3"></ng-include>  
-            <ng-include src="'/public/temp/help.html'" ng-if="index==4"></ng-include>  
+            <ng-include src="'/public/temp/user.html'" ng-if="index==3"></ng-include>
+            <ng-include src="'/public/temp/help.html'" ng-if="index==4"></ng-include>
         </div>
-    
         <div id="sidebar">
             <div class="fn">
                 <p>
@@ -36,24 +34,15 @@
                     <span class='button'>添加团购</span>
                 </p>
             </div>
-
             <div class="info">
                 <p>公告</p>
             </div>
-
-
         </div>
     </div>
 
-    <ng-include  >popup</ng-include>
-
-
+    <div class="Tip" ng-if="globalTip.on">{{globalTip.tip}}</div>
+    <ng-include>popup</ng-include>
     <footer id="footer"></footer>
-
-
-
-
-
     <script src="/public/lib/angularjs/angular.min.js"></script>
     <script src="/public/javascripts/main.min.js"></script>
 </body>
