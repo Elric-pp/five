@@ -2,6 +2,10 @@ app.controller('loginCtrl', ['$scope', '$timeout', 'loginService', function($sco
     $scope.userName = "";
     $scope.passwd = "";
     $scope.login = function() {
+    	if ($scope.username == "" || $scope.passwd == "" ) {
+                $scope.myalter("用户名或密码不能为空");
+                return false;
+            };
         var _proxy = loginService.login($scope.userName, $scope.passwd);
         _proxy.success(function(data) {
                 console.log(data);
@@ -25,6 +29,14 @@ app.controller('loginCtrl', ['$scope', '$timeout', 'loginService', function($sco
         passwd: "",
         repasswd: "",
         regis: function() {
+            if ($scope.reg.username == "" || $scope.reg.passwd == "" || $scope.reg.repasswd == "") {
+                $scope.myalter("必填字段不能为空");
+                return false;
+            };
+            if ($scope.reg.passwd.length <= 8) {
+                $scope.myalter("密码太短");
+                return false;
+            };
             if ($scope.reg.passwd !== $scope.reg.repasswd) {
                 $scope.myalter("两次密码不一致")
                 return false;

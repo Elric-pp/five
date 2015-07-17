@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "main": "app.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Elric-pp/five",
+  "authors": [
+    "Elric-pp <121335897@qq.com>"
+  ],
+  "description": "five",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.3",
+    "material-design-lite": "~1.0.0",
+    "material-design-icons": "~2.0.0"
+  }
+}

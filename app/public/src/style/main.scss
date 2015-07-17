@@ -1,3 +1,4 @@
+/***格式化样式***/
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +14,44 @@ body {
 a {
     text-decoration: none;
 }
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src : url('../lib/material-design-icons/iconfont/MaterialIcons-Regular.eot');
+    src : url('../lib/material-design-icons/iconfont/MaterialIcons-Regular.ttf');
+    src : url('../lib/material-design-icons/iconfont/MaterialIcons-Regular.woff');
+    src : url('../lib/material-design-icons/iconfont/MaterialIcons-Regular.woff2');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
 
 @mixin button {
     display: inline-block;
@@ -71,8 +110,9 @@ ul {
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
     position: fixed;
     top: 0;
+    z-index: 1000;
     #nav {
-        ul {
+/*         ul {
             margin: 0 20px;
             list-style: none;
             float: right;
@@ -92,6 +132,12 @@ ul {
             .curli {
                 background: #00a3cf;
             }
+        } */
+        float:right;
+        margin-right: 20px;
+        margin-top: 10px;
+        .mdl-button{
+            color: #fff;
         }
     }
 }
@@ -133,10 +179,16 @@ ul {
             .boxWrap {
                 width: 100%;
                 padding: 20px;
+                position:relative;
                 @include block;
                 p {
                     margin-top: 10px;
                     text-indent: 10px;
+                }
+                .addbtn {
+                    position:absolute;
+                    right: 10px;
+                    top: 25px;
                 }
                 .boxes {
                     width: 100%;
@@ -144,7 +196,7 @@ ul {
                 }
                 .more {
                     padding-right: 50px;
-                    text-align: right;
+                    text-align: center;
                     a {
                         color: #777;
                     }
@@ -183,20 +235,10 @@ ul {
         position: fixed;
         right: 5%;
         margin-top: 28px;
-        .fn {
+        .info {
             @include block;
             padding: 20px;
             margin-bottom: 20px;
-            p {
-                margin-bottom: 10px;
-                text-align: center;
-                .button {
-                    @include button;
-                }
-            }
-        }
-        .info {
-            @extend .fn;
         }
     }
     .Tip {
@@ -228,6 +270,9 @@ ul {
             height: 22px;
             line-height: 22px;
             margin: 10px 45px;
+        }
+        .name {
+            margin-top: 30px;
         }
         .btnwrap {
             width: 240px;

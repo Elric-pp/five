@@ -3,7 +3,6 @@ var router = express.Router();
 var crypto = require('crypto');
 
 var User = require('../models/user');
-console.log(User.get);
 /* GET users listing. */
 router.get('/', checkNotLogin)
 router.get('/', function(req, res, next) {
@@ -44,7 +43,7 @@ router.post('/login', function(req, res) {
 router.post('/regis', function(req, res) {
     var md5 = crypto.createHash('md5');
     var password = md5.update(req.body.password).digest('base64');
-    console.log(req.body)
+   // console.log(req.body)
     var newUser = new User({
         name: req.body.username,
         password: password

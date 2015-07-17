@@ -25,7 +25,7 @@ User.prototype.save = function(callback) {
     };
 
     var newUser = new userModel(user);
-    console.log(user);
+   // console.log(user);
     newUser.save(function(err, user) {
         if (err) {
             return callback(err);

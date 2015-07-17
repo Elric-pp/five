@@ -4,18 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoList</title>
+    <link rel="stylesheet" href="/public/lib/material-design-lite/material.min.css">
     <link rel="stylesheet" href="/public/stylesheets/main.min.css">
 </head>
 
 <body ng-app="app" ng-controller="appCtrl">
     <header id="header">
         <nav id="nav">
-            <ul>
-                <li ng-class="{curli : index==1}" ng-click="changeIndex(1)">首页</li>
-                <!-- <li ng-class="{curli : index==2}" ng-click="changeIndex(2)">五班</li>
-                <li ng-class="{curli : index==3}" ng-click="changeIndex(3)">我</li>
-                <li ng-class="{curli : index==4}" ng-click="changeIndex(4)">帮助</li> -->
+            <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">menu</i>
+            </button>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                <li class="mdl-menu__item" ng-click="changeIndex(1)">首页</li>
+                <li disabled class="mdl-menu__item" ng-click="changeIndex(2)">五班</li>
+                <li disabled class="mdl-menu__item" ng-click="changeIndex(3)">我</li>
+                <li disabled class="mdl-menu__item" ng-click="changeIndex(4)">帮助</li>
             </ul>
+            <!--  <ul>
+               <li ng-class="{curli : index==1}" ng-click="changeIndex(1)">首页</li>
+               <li ng-class="{curli : index==2}" ng-click="changeIndex(2)">五班</li>
+               <li ng-class="{curli : index==3}" ng-click="changeIndex(3)">我</li>
+               <li ng-class="{curli : index==4}" ng-click="changeIndex(4)">帮助</li>
+           </ul> -->
         </nav>
     </header>
     <div id="wrap">
@@ -26,24 +36,16 @@
             <ng-include src="'/public/temp/help.html'" ng-if="index==4"></ng-include>
         </div>
         <div id="sidebar">
-            <div class="fn">
-                <p>
-                    <span class='button'>创建活动</span>
-                </p>
-                <p>
-                    <span class='button'>添加团购</span>
-                </p>
-            </div>
             <div class="info">
                 <p>公告</p>
             </div>
         </div>
     </div>
-
     <div class="Tip" ng-if="globalTip.on">{{globalTip.tip}}</div>
     <ng-include>popup</ng-include>
     <footer id="footer"></footer>
     <script src="/public/lib/angularjs/angular.min.js"></script>
+    <script src="/public/lib/material-design-lite/material.min.js"></script>
     <script src="/public/javascripts/main.min.js"></script>
 </body>
 

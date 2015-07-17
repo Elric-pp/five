@@ -1,5 +1,4 @@
 <div id="home" ng-controller="homeCtrl">
-    
     <nav>
         <ul class="tablist clearFix">
             <li class="tab" ng-class="{curtab : tabIndex==1}" ng-click="changeTab(1)">班级</li>
@@ -9,6 +8,10 @@
     </nav>
     <div class="activity boxWrap" ng-if="tabIndex==1">
         <p>班级活动</p>
+        <!-- Mini FAB button -->
+        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored addbtn">
+            <i class="material-icons">add</i>
+        </button>
         <div class="boxes">
             <div class="box"><img src="" alt=""><span></span></div>
             <div class="box"><img src="" alt=""><span></span></div>
@@ -19,11 +22,28 @@
             <div class="box"><img src="" alt=""><span></span></div>
             <div class="box"><img src="" alt=""><span></span></div>
         </div>
-        <p class="more"><a href="#">查看更多>></a></p>
+        <div class="more">
+            <ul>
+                <li>
+                    <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                        <i class="material-icons md-18">keyboard_arrow_left</i>
+                    </button>
+                </li>
+                <li><i class="material-icons">1</i></li>
+                <li>
+                    <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                        <i class="material-icons md-36">keyboard_arrow_right</i>
+                    </button>
+                </li>
+            </ul>
+        </div>
     </div>
-    
     <div class="movie boxWrap" ng-if="tabIndex==2">
         <p>近期电影</p>
+        <!-- Mini FAB button -->
+        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored addbtn">
+            <i class="material-icons">add</i>
+        </button>
         <div class="boxes">
             <div class="box"><img src="" alt=""><span></span></div>
             <div class="box"><img src="" alt=""><span></span></div>
@@ -36,9 +56,12 @@
         </div>
         <p class="more"><a href="#">查看更多>></a></p>
     </div>
-
     <div class="group boxWrap" ng-if="tabIndex==3">
         <p>团购优惠</p>
+        <!-- Mini FAB button -->
+        <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored addbtn">
+            <i class="material-icons">add</i>
+        </button>
         <div class="boxes">
             <div class="box"><img src="" alt=""><span></span></div>
             <div class="box"><img src="" alt=""><span></span></div>
@@ -51,6 +74,4 @@
         </div>
         <p class="more"><a href="#">查看更多>></a></p>
     </div>
-
-
 </div>
