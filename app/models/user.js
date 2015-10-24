@@ -1,6 +1,7 @@
 //var crypto = require('crypto');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/five');
+/*var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/five');*/
+var mongoose = require('./mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({

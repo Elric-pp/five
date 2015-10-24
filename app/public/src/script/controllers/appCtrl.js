@@ -5,6 +5,30 @@ app.controller('appCtrl', ['$scope', function($scope) {
     }
 
 
+
+    //全局弹窗
+    //$scope.mainPopup = false;
+    $scope.globalPopup = false;
+    $scope.showGlobalPopupTip = true;
+    $scope.globalPopupTip = {};
+
+/*    $scope.popup = function(obj) {
+        $scope.mainPopup = true;
+        $scope.showGlobalPopupTip = true;
+        $scope.globalPopupTip = obj;
+    };*/
+    $scope.closePopup = function() {
+        $scope.mainPopup = false;
+        $scope.showGlobalPopupTip = false;
+        $scope.globalPopupTip = {};
+    };
+    $scope.popup = function(obj) {
+        $scope.globalPopup = true;
+        $scope.showGlobalPopupTip = true;
+        $scope.globalPopupTip = obj;
+    };
+
+    //顶部提示
     $scope.globalTip = {
         on: false,
         tip: '',

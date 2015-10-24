@@ -7,6 +7,30 @@ app.controller('appCtrl', ['$scope', function($scope) {
     }
 
 
+
+    //全局弹窗
+    //$scope.mainPopup = false;
+    $scope.globalPopup = false;
+    $scope.showGlobalPopupTip = true;
+    $scope.globalPopupTip = {};
+
+/*    $scope.popup = function(obj) {
+        $scope.mainPopup = true;
+        $scope.showGlobalPopupTip = true;
+        $scope.globalPopupTip = obj;
+    };*/
+    $scope.closePopup = function() {
+        $scope.mainPopup = false;
+        $scope.showGlobalPopupTip = false;
+        $scope.globalPopupTip = {};
+    };
+    $scope.popup = function(obj) {
+        $scope.globalPopup = true;
+        $scope.showGlobalPopupTip = true;
+        $scope.globalPopupTip = obj;
+    };
+
+    //顶部提示
     $scope.globalTip = {
         on: false,
         tip: '',
@@ -24,12 +48,63 @@ app.controller('appCtrl', ['$scope', function($scope) {
 app.controller('groupCtrl', ['$scope', 'groupService', function($scope, groupService){
 
 }]);
-app.controller('homeCtrl', ['$scope', 'homeService',function($scope,homeService){
+app.controller('homeCtrl', ['$scope','$timeout', 'homeService', function($scope,$timeout, homeService) {
     $scope.tabIndex = 1;
-    $scope.changeTab = function(index){
-    	$scope.tabIndex = index;
+    $scope.changeTab = function(index) {
+        $scope.tabIndex = index;
     }
+
+    $scope.addmovie = function() {
+    	console.log($scope.globalPopupTip)
+            var obj = {
+                'title': '新增电影',
+                'hideCloseBtn': false,
+                'type': 1,
+                'isPwd': false,
+                'okBtnText': '添加',
+                'cancelBtnText': '取消',
+                'filed': '',
+                'callback': function() {
+                    if ($scope.globalPopupTip.filed == '') {
+                        $scope.globalTip.tip = ' 分组名不能为空 ';
+                        $scope.globalTip.on = true;
+                        $timeout(function() {
+                            $scope.globalTip.on = false;
+                        }, 3000);
+                    } else {
+                        var _proxy = homeService.addmovie($scope.globalPopupTip.filed);
+                        _proxy.success(function(data) {
+                            if (data.status == 0) {
+                                var text = '添加成功';
+                                $scope.closePopup();
+                                $scope.globalTip.tip = text;
+                                $scope.globalTip.on = true;
+                                $timeout(function() {
+                                    $scope.globalTip.on = false;
+                                }, 1500);
+                                $scope.Term.gettg();
+                                $scope.Term.getterms('', 1);
+                            };
+                        }).error(function(data, status) {
+                            var text = '添加失败';
+                            $scope.closePopup();
+                            $scope.globalTip.tip = text;
+                            $scope.globalTip.on = true;
+                            $timeout(function() {
+                                $scope.globalTip.on = false;
+                            }, 1500);
+                        })
+                        $scope.closePopup();
+                    }
+                },
+                'cancel': $scope.closePopup,
+            };
+            $scope.popup(obj);
+        }
+        //var _proxy1 = homeService.movies();
+        //var _proxy = homeService.addmovie('http://movie.douban.com/subject/25723907/?from=showing');
 }]);
+
 app.controller('loginCtrl', ['$scope', '$timeout', 'loginService', function($scope, $timeout, loginService) {
     $scope.userName = "";
     $scope.passwd = "";
@@ -110,8 +185,21 @@ app.service('groupService', ['$http', function($http) {
 	
 }])
 app.service('homeService', ['$http', function($http) {
-	
+    this.movies = function(){
+    	var url = '/movie';
+    	return $http.get(url, [])
+    }
+
+    this.addmovie = function(src) {
+        var url = '/movie/add';
+        return $http.post(
+            url,
+            'url=' + src,
+ 	{method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}}
+        )
+    }
 }])
+
 app.service('loginService', ['$http', function($http) {
     this.login = function(name, pwd) {
         var url = '/users/login';

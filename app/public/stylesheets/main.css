@@ -7,7 +7,7 @@
 
 /***公用的样式***/
 body {
-  background: #ccc;
+  background: #eee;
 }
 
 a {
@@ -120,6 +120,9 @@ ul {
 #header #nav .mdl-button {
   color: #fff;
 }
+#header #nav .mdl-menu__container {
+  margin-right: 20px;
+}
 
 #wrap {
   margin: 100px;
@@ -174,11 +177,10 @@ ul {
   margin-left: 20px;
 }
 #wrap #content #home .boxWrap .more {
-  padding-right: 50px;
   text-align: center;
 }
-#wrap #content #home .boxWrap .more a {
-  color: #777;
+#wrap #content #home .boxWrap .more .changePage {
+  display: inline-block;
 }
 #wrap #content #group .board {
   height: 200px;
@@ -227,6 +229,18 @@ ul {
   left: 50%;
   margin-left: -50px;
   top: 20px;
+}
+#wrap .alarmPopup {
+  width: 400px;
+  height: 400px;
+  background: #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -200px;
+  margin-top: -200px;
 }
 
 #loginPage {

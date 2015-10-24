@@ -8,7 +8,7 @@
 /***公用的样式***/
 
 body {
-    background: #ccc;
+    background: #eee;
 }
 
 a {
@@ -82,6 +82,12 @@ a {
     line-height: 30px;
 }
 
+@mixin center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+
 ul {
     list-style: none;
 }
@@ -139,6 +145,9 @@ ul {
         .mdl-button{
             color: #fff;
         }
+        .mdl-menu__container {
+            margin-right: 20px;
+        }
     }
 }
 
@@ -195,10 +204,9 @@ ul {
                     margin-left: 20px;
                 }
                 .more {
-                    padding-right: 50px;
                     text-align: center;
-                    a {
-                        color: #777;
+                    .changePage {
+                        display: inline-block;
                     }
                 }
             }
@@ -241,12 +249,21 @@ ul {
             margin-bottom: 20px;
         }
     }
+    //全局类弹窗提示
     .Tip {
         @include tips;
         position: absolute;
         left: 50%;
         margin-left: -50px;
         top: 20px;
+    }
+    .alarmPopup {
+        width: 400px;
+        height: 400px;
+        @include block;
+        @include center;
+        margin-left:-200px;
+        margin-top: -200px;
     }
 }
 
