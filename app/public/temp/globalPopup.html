@@ -1,0 +1,71 @@
+<!-- prompt -->
+<div class="alarmPopup" id="wsAlarmAdd" ng-if="showGlobalPopupTip && globalPopupTip.type == 1">
+    <p class="alarmTitle">
+        {{ globalPopupTip.title }}
+        <b ng-show="!globalPopupTip.hideCloseBtn" ng-click="closePopup();"></b>
+    </p>
+    <div class="alarmCon">
+        <div class="wsAlarmConInput">
+            <!-- 普通输入框 -->
+            <div class="alarmText" style="position: relative;" ng-if="!(globalPopupTip.isPwd)">
+                <p class="textInput">
+                    <!--//输入框-->
+                    <input type="text" maxlength="8" ng-model="globalPopupTip.filed">
+                </p>
+            </div>
+            <!-- 密码输入框 -->
+            <div ng-if="globalPopupTip.isPwd">
+                <div class="alarmText" style="position: relative;">
+                    <p class="textInput">
+                        <!--//密码框-->
+                        <input type="password" maxlength="16" placeholder="输入原密码" ng-model="globalPopupTip.filedOrigin" style="margin-bottom: 7px;">
+                        <input type="password" maxlength="16" placeholder="输入新密码" ng-model="globalPopupTip.filed" style="margin-bottom: 7px;">
+                        <input type="password" maxlength="16" placeholder="确定新密码" ng-model="globalPopupTip.filedTwice" style="margin-bottom: 7px;">
+                    </p>
+                </div>
+                <p style="color: #c9c9c9;font-size: 12px;margin-top: -16px;">6-16位半角字符（数字、字母及符号）</p>
+            </div>
+            <div class="popBottonBox">
+                <span>
+                    <a href="javascript:;" class="popSure" ng-if="globalPopupTip.callback" ng-click="globalPopupTip.callback();">{{ globalPopupTip.okBtnText }}</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- warnning msg -->
+<div class="alarmPopup" id="wsAlarm" ng-if="showGlobalPopupTip && globalPopupTip.type == 2">
+    <p class="alarmTitle">
+        {{ globalPopupTip.title }}
+        <b ng-show="!globalPopupTip.hideCloseBtn" ng-click="closePopup();"></b>
+    </p>
+    <div class="alarmCon">
+        <div class="wsAlarmCon">
+            <p class="alarmText">{{ globalPopupTip.text }}</p>
+            <div class="popBottonBox">
+                <span>
+                    <a href="javascript:;" class="popSure" ng-if="globalPopupTip.callback" ng-click="globalPopupTip.callback();">{{ globalPopupTip.okBtnText }}</a>
+                    <a href="javascript:;" class="popCancel" ng-if="globalPopupTip.cancel" ng-click="globalPopupTip.cancel();">{{ globalPopupTip.cancelBtnText }}</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- error msg -->
+<div class="alarmPopup" id="errorAlarm" ng-if="showGlobalPopupTip && globalPopupTip.type == 3">
+    <p class="alarmTitle">
+        {{ globalPopupTip.title }}
+        <b ng-show="!globalPopupTip.hideCloseBtn" ng-click="closePopup();"></b>
+    </p>
+    <div class="alarmCon">
+        <div class="errorAlarmCon">
+            <!-- <img src="/res/image/error.jpg" /> -->
+            <p>{{ globalPopupTip.text }}</p>
+            <div class="popBottonBox">
+                <span>
+                    <a href="javascript:;" class="popSure" ng-if="globalPopupTip.callback" ng-click="globalPopupTip.callback();">{{ globalPopupTip.okBtnText }}</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
